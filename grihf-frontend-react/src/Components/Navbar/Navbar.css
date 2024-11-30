@@ -1,147 +1,167 @@
-/* General reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
-/* Main navbar container */
-nav {
-    padding: 1.5rem 2rem;
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
+/* General Styles for Navbar */
+.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 20px;
     background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+    /* Prevents padding from affecting width */
 }
 
-/* Logo styling */
 .nav__logo {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #0d213f;
-    text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: flex-start;
+    /* Always left-align logo */
+    flex: 1;
 }
 
-/* Ensure the logo link is blue and not affected by hover or other styles */
 .nav__logo a {
     color: #3685fb;
-    /* Set logo link color to blue */
+    /* Logo text is blue */
+    font-size: 24px;
+    font-weight: 600;
     text-decoration: none;
-    /* Remove any text decoration */
 }
 
-/* Logo SVG icon */
+/* Ensure SVG logo is aligned properly with text */
 .nav__logo svg {
-    fill: #3685fb;
-    height: 28px;
-    width: 28px;
+    margin-left: 8px;
 }
 
-/* Navbar icon (hamburger) for mobile */
-.nav__icon {
-    font-size: 2rem;
-    cursor: pointer;
-    display: none;
-    color: #3685fb;
-    /* Set the icon color to #3685fb */
-}
-
-/* Navigation links container */
+/* Styles for the links in the navbar */
 .nav__links {
     display: flex;
-    gap: 1.5rem;
+    justify-content: space-between;
+    align-items: center;
     list-style: none;
-    font-size: 1rem;
-    /* Set font size for links */
-    font-weight: 500;
-    align-items: center;
-    /* Align items vertically */
+    margin: 0;
+    padding: 0;
 }
 
-/* Individual links */
-.nav__links .link {
+/* Style each link */
+.nav__links ul {
     display: flex;
-    /* Ensure flex for proper alignment */
-    align-items: center;
-    /* Vertically center content */
+    gap: 20px;
 }
 
-.nav__links .link a {
-    color: #0d213f;
+.nav__links li {
+    position: relative;
+}
+
+.nav__links li a {
     text-decoration: none;
-    padding: 10px 15px;
-    font-size: 1rem;
-    /* Ensure font size consistency with other links */
-    transition: color 0.3s ease;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 50px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Hover effect for links */
-.nav__links .link a:hover {
-    color: #3685fb;
-    text-decoration: underline;
+/* Hover Effect for Links */
+.nav__links li a:hover {
+    background-color: #3685fb;
+    /* Blue background on hover */
+    color: #fff;
 }
 
-/* Sign Up/Login button styling */
-.btn1 {
-    background-color: #fff;
-    color: #3685fb;
-    border: 2px solid #3685fb;
-    padding: 8px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 1rem;
-    /* Ensure button text size matches the links */
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.btn1:hover {
+/* Blue circular background for Login and Sign-Up links */
+.nav__links li a:nth-child(3),
+.nav__links li a:nth-child(4) {
     background-color: #3685fb;
     color: #fff;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 780px) {
-    .nav__logo {
-        flex: 1;
+/* Mobile Menu Icon (Hamburger Button) */
+.nav__icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #3685fb;
+    /* Set the mobile menu icon color to blue */
+}
+
+.nav__icon i {
+    color: inherit;
+}
+
+/* Show the menu when it's active (for mobile) */
+.nav__links.active {
+    display: block;
+    /* Show links when active */
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: row;
+        /* Change back to row layout for mobile */
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        /* Ensure navbar takes full width */
     }
 
+    /* Make nav__links take full width */
+    .nav__links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: white;
+        width: 100%;
+        padding: 20px;
+        display: none;
+        flex-direction: column;
+        /* Stack links vertically */
+        gap: 15px;
+        text-align: center;
+        z-index: 10;
+    }
+
+    /* Show the mobile menu icon (hamburger) */
     .nav__icon {
         display: block;
-    }
-
-    .nav__links {
-        display: none;
         position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        width: 100%;
-        background-color: #fff;
-        padding: 1rem;
-        flex-direction: column;
-        align-items: center;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        z-index: 999;
+        right: 20px;
+        /* Align hamburger icon to the right */
+        top: 20px;
+        /* Align hamburger icon vertically with the navbar */
     }
 
+    /* Show links when menu is active */
     .nav__links.active {
         display: flex;
     }
 
-    .nav__links .link {
+    /* Make the links full width on mobile */
+    .nav__links li a {
         width: 100%;
-        text-align: center;
+        padding: 10px 0;
+    }
+
+    /* Align logo to the left on mobile */
+    .nav__logo {
+        justify-content: flex-start;
+        /* Ensure left alignment */
+        flex: unset;
+        /* Ensure it doesn't stretch */
+    }
+
+    /* Make the menu icon a "hamburger" on mobile */
+    .nav__icon svg {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Additional Styles for Small Screens Below 550px */
+@media (max-width: 550px) {
+    .nav {
+        width: 100%;
+        /* Ensure navbar takes full width */
     }
 }

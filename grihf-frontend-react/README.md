@@ -19,24 +19,6 @@ StayHealthy Inc. is a non-profit organization focused on improving healthcare ac
 - **Profile Management:**  
   Users can sign up to make appointments, and update their personal information (name, address, phone number, age, etc.).
 
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Cod-e-Codes/grihf-frontend_capstone_starter_code
-   ```
-
-   ```bash
-   cd grihf-frontend_capstone_starter_code
-   npm install
-   ```
-
-3. Run the development server:
-   ```bash
-   npm start
-   ```
-
-4. Navigate to http://localhost:3000 to view the application.
-
 ## Project Status
 
 This project is currently under development

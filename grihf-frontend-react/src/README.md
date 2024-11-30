@@ -25,17 +25,7 @@ StayHealthy Inc. is a non-profit organization focused on improving healthcare ac
    git clone https://github.com/Cod-e-Codes/grihf-frontend_capstone_starter_code
    ```
 
-   ```bash
-   cd grihf-frontend_capstone_starter_code
-   npm install
-   ```
-
-3. Run the development server:
-   ```bash
-   npm start
-   ```
-
-4. Navigate to http://localhost:3000 to view the application.
+2. Open the files in your browser
 
 ## Project Status
 
